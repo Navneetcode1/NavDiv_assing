@@ -51,7 +51,7 @@ const EditCandidatePopup = ({ candidate, closePopup }) => {
     const response = await editCandidate(candidate._id, updatedCandidate);
     if (response) {
       alert('Candidate updated successfully!');
-      window.location.reload();
+    //   window.location.reload();
     //   updateCandidates(); // Call the parent function to update candidates
       closePopup();
     }
