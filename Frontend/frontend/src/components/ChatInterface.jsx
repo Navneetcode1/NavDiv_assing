@@ -16,7 +16,7 @@ const ChatInterface = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsOpen(false); // Close the popup automatically
-    }, 5000); // Change the time as needed
+    }, 20000); // Change the time as needed
 
     return () => clearTimeout(timer); // Clean up the timer on unmount
   }, [messages]);

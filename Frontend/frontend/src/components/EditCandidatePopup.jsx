@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { editCandidate } from '../apiservice';
 
-const EditCandidatePopup = ({ candidate, closePopup, updateCandidates }) => {
+const EditCandidatePopup = ({ candidate, closePopup }) => {
+ 
+    const [candidates, setCandidates] = useState([]);
   const [formData, setFormData] = useState({
     name: '',
     skills: '',
@@ -25,6 +27,13 @@ const EditCandidatePopup = ({ candidate, closePopup, updateCandidates }) => {
       });
     }
   }, [candidate]);
+  const updateCandidates = async () => {
+    const response = await fetch('http://localhost:5000/api/candidates');
+    const data = await response.json();
+    setCandidates(data);
+  };
+
+  
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -42,7 +51,8 @@ const EditCandidatePopup = ({ candidate, closePopup, updateCandidates }) => {
     const response = await editCandidate(candidate._id, updatedCandidate);
     if (response) {
       alert('Candidate updated successfully!');
-      updateCandidates(); // Call the parent function to update candidates
+      window.location.reload();
+    //   updateCandidates(); // Call the parent function to update candidates
       closePopup();
     }
   };

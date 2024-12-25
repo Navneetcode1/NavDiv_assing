@@ -5,7 +5,7 @@ const CandidatesList = () => {
   const [candidates, setCandidates] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null); 
-
+  const [selectedCandidate, setSelectedCandidate] = useState(null)
   useEffect(() => {
     const fetchCandidates = async () => {
       try {
@@ -24,6 +24,11 @@ const CandidatesList = () => {
 
     fetchCandidates();
   }, []);
+  const updateCandidates = async () => {
+    const response = await fetch('http://localhost:5000/api/candidates');
+    const data = await response.json();
+    setCandidates(data);
+  };
 
   if (loading) return <div>Loading...</div>;
   if (error) return <div>Error: {error}</div>;
@@ -44,6 +49,13 @@ const CandidatesList = () => {
         </ul>
       ) : (
         <p>No candidates found.</p>
+      )}
+       {showEditPopup && (
+        <EditCandidatePopup
+          candidate={selectedCandidate} 
+          closePopup={handleClosePopup} 
+          updateCandidates={updateCandidates} 
+        />
       )}
         <Charts data={candidates.map(({ name, experience }) => ({ name, experience }))} />
     </div>

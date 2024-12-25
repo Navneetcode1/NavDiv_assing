@@ -35,7 +35,7 @@ const App = () => {
         {/* Navbar */}
         <nav className="bg-blue-600 text-white py-4">
           <div className="max-w-7xl mx-auto px-4 flex justify-between items-center">
-            <div className="text-2xl font-semibold">App Dashboard</div>
+            <div className="text-2xl font-semibold">Candidate Management App</div>
             <div className="space-x-6">
               <Link
                 to="/admin"
