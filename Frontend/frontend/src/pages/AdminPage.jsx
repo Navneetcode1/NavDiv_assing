@@ -68,8 +68,8 @@ const AdminPage = () => {
     const updatedCandidate = await editCandidate(candidateToUpdate, selectedCandidate._id);
     if (updatedCandidate) {
       alert('Candidate updated successfully!');
-      setCandidates(await fetchCandidates()); // Refresh the candidates list
-      setShowEditPopup(false); // Close the edit popup
+      setCandidates(await fetchCandidates()); 
+      setShowEditPopup(false); 
     }
   };
 
@@ -77,7 +77,6 @@ const AdminPage = () => {
     <div className="bg-gray-50 min-h-screen flex flex-col items-center py-8 px-4">
       <h1 className="text-4xl font-semibold text-blue-600 mb-6">Admin Dashboard</h1>
 
-      {/* Button to trigger create form */}
       <button
         onClick={() => setShowCreateForm(!showCreateForm)}
         className="mb-6 px-6 py-3 bg-blue-600 text-white text-lg font-medium rounded-lg shadow-md hover:bg-blue-700 transition duration-300"
@@ -85,7 +84,6 @@ const AdminPage = () => {
         {showCreateForm ? 'Cancel' : 'Add New Candidate'}
       </button>
 
-      {/* Create Candidate Form */}
       {showCreateForm && (
         <form onSubmit={handleCreateSubmit} className="bg-white shadow-lg rounded-lg p-6 w-full max-w-lg space-y-4 mb-8">
           <input
@@ -159,6 +157,7 @@ const AdminPage = () => {
                 <p className="text-gray-600">Skills: {candidate.skills.join(', ')}</p>
                 <p className="text-gray-600">Experience: {candidate.experience}</p>
                 <p className="text-gray-600">Location: {candidate.location}</p>
+                <p className="text-gray-600">Coding Results: {candidate.codingResult}</p>
               </div>
               <div className="space-x-4">
                 <button

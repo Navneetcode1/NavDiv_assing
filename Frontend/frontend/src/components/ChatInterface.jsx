@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 const ChatInterface = () => {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState('');
-  const [isOpen, setIsOpen] = useState(true); // State to manage the popup visibility
+  const [isOpen, setIsOpen] = useState(true); 
 
   const sendMessage = () => {
     if (input.trim()) {
@@ -12,16 +12,14 @@ const ChatInterface = () => {
     }
   };
 
-  // Close the popup automatically after a certain period of inactivity (e.g., 5 seconds)
   useEffect(() => {
     const timer = setTimeout(() => {
-      setIsOpen(false); // Close the popup automatically
-    }, 20000); // Change the time as needed
-
-    return () => clearTimeout(timer); // Clean up the timer on unmount
+      setIsOpen(false); 
+    }, 20000);
+    return () => clearTimeout(timer);
   }, [messages]);
 
-  if (!isOpen) return null; // Don't render the component if isOpen is false
+  if (!isOpen) return null; 
 
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-gray-800 bg-opacity-50 z-50">
@@ -29,7 +27,7 @@ const ChatInterface = () => {
         <div className="flex justify-between items-center mb-4">
           <h2 className="text-lg font-semibold text-gray-800">Chat</h2>
           <button
-            onClick={() => setIsOpen(false)} // Close the popup
+            onClick={() => setIsOpen(false)}
             className="text-gray-500 hover:text-gray-800 focus:outline-none"
           >
             ✖

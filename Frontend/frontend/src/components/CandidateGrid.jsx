@@ -9,7 +9,7 @@ const CandidatesList = () => {
   useEffect(() => {
     const fetchCandidates = async () => {
       try {
-        const response = await fetch('http://localhost:5000/api/candidates');
+        const response = await fetch('https://navdiv-assing-b.onrender.com/api/candidates');
         if (!response.ok) {
           throw new Error(`HTTP error! Status: ${response.status}`);
         }
@@ -25,7 +25,7 @@ const CandidatesList = () => {
     fetchCandidates();
   }, []);
   const updateCandidates = async () => {
-    const response = await fetch('http://localhost:5000/api/candidates');
+    const response = await fetch('https://navdiv-assing-b.onrender.com/api/candidates');
     const data = await response.json();
     setCandidates(data);
   };
@@ -44,6 +44,7 @@ const CandidatesList = () => {
               <p><strong>Skills:</strong> {candidate.skills.join(', ')}</p>
               <p><strong>Experience:</strong> {candidate.experience} years</p>
               <p><strong>Location:</strong> {candidate.location}</p>
+              <p><strong>Coding Results:</strong> {candidate.codingResult}</p>
             </li>
           ))}
         </ul>

@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import AdminPage from './pages/AdminPage';
 import RecruiterPage from './pages/RecruiterPage';
-import Charts from './components/Charts'; // Adjust the path as per your directory structure
-import ChatInterface from './components/ChatInterface'; // Adjust the path as per your directory structure
+import Charts from './components/Charts'; 
+import ChatInterface from './components/ChatInterface'; 
 
 const App = () => {
   const [candidates, setCandidates] = useState([]);
@@ -13,7 +13,7 @@ const App = () => {
   useEffect(() => {
     const fetchCandidates = async () => {
       try {
-        const response = await fetch('https://navdiv-assing-backend.onrender.com/api/candidates');
+        const response = await fetch('https://navdiv-assing-b.onrender.com/api/candidates');
         if (!response.ok) {
           throw new Error(`HTTP error! Status: ${response.status}`);
         }

@@ -6,8 +6,8 @@ const DeleteCandidate = ({ candidateId, closePopup, updateCandidates }) => {
     const deleted = await deleteCandidate(candidateId);
     if (deleted) {
       alert('Candidate deleted successfully!');
-      updateCandidates(); // Refresh the candidates list
-      closePopup(); // Close the popup
+      updateCandidates(); 
+      closePopup(); 
     }
   };
 

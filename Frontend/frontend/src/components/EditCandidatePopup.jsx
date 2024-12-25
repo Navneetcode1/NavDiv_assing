@@ -28,7 +28,7 @@ const EditCandidatePopup = ({ candidate, closePopup }) => {
     }
   }, [candidate]);
   const updateCandidates = async () => {
-    const response = await fetch('http://localhost:5000/api/candidates');
+    const response = await fetch('https://navdiv-assing-b.onrender.com/api/candidates');
     const data = await response.json();
     setCandidates(data);
   };
